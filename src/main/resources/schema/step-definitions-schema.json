@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "patternProperties": {
+    "^[a-zA-Z0-9]+$": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9]+$": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "description": "Method name from coreFun.java",
+              "enum": ["driverClose","handOver","openWebPage", "enterText", "clickAction", "getVerifyTextPresent", "assert", "input","getButtonIsEnabled","clear","getAttribute","getElementIsDisplayed","getCheckBoxIsSelected","unSelectOptionByIdFromList"]
+            },
+            "desc": {
+              "type": "string",
+              "description": "Step description"
+            },
+            "parameters": {
+              "type": ["array", "null"],
+              "description": "List of parameters for the method",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Parameter type (e.g., String, int)"
+                  }
+                },
+                "required": ["type"]
+              }
+            },
+            "action": {
+              "type": "string",
+              "description": "Action type (e.g., click, input, assert)",
+              "enum": ["driverClose","handOver","openWebPage","click", "input", "assert","clear","getAttribute","isEnabled","isDisplayed","isSelected","unSelectOptionById"]
+            },
+            "element": {
+              "type": "object",
+              "description": "Element locator details",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Element locator type (e.g., xpath, className, id)",
+                      "enum": ["xpath", "id", "className","name","partialLinkText","tagName","cssSelector","linkText"]
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "Element locator value"
+                    }
+                  },
+                  "required": ["type", "value"]
+                },
+                {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": ["method", "desc", "action", "element","parameters"]
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

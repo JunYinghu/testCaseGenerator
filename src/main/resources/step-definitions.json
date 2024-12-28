@@ -1,0 +1,190 @@
+{
+  "LogonPage": {
+    "OpenLogonPage": {
+      "method": "openWebPage",
+      "desc": "Open Web Page as given URL",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "click",
+      "element": {}
+    },
+    "ClearUserName": {
+      "method": "clear",
+      "desc": "clear the username in the login form",
+      "parameters": null,
+      "action": "clear",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/form/div[2]/div/div/input"
+      }
+    },
+
+    "EnterUserName": {
+      "method": "enterText",
+      "desc": "Enter the username in the login form",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/form/div[2]/div/div/input"
+      }
+    },
+    "ClearPassword": {
+      "method": "clear",
+      "desc": "clear the password in the login form",
+      "parameters": null,
+      "action": "clear",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/form/div[3]/div/div/input"
+      }
+    },
+    "EnterPassword": {
+      "method": "enterText",
+      "desc": "Enter the password in the login form",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/form/div[3]/div/div/input"
+      }
+    },
+    "ClickLoginButton": {
+      "method": "clickAction",
+      "desc": "Click the login button on the login form",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/form/div[5]/button[1]"
+      }
+    },
+    "VerifyFailLoginPresent": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify the login fails message on the page",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[2]/p"
+      }
+    },
+    "VerifyIncorrectEmailPresent": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify the email incorrect message on the page",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/form/div[2]/div/div[2]"
+      }
+    }
+  },
+
+  "WelcomePage": {
+    "VerifyTextPresent": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify the welcome message on the page",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[1]/div/div[2]/ul/li[1]"
+      }
+    },
+    "Close": {
+      "method": "driverClose",
+      "desc": "Close current web page",
+      "parameters": null,
+      "action": "driverClose",
+      "element": {}
+    },
+    "Logout": {
+      "method": "clickAction",
+      "desc": "Logout user from the page",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/ul/li[2]/div"
+      }
+    },
+    "MoveToUserProfile": {
+      "method": "handOver",
+      "desc": "Move to User Profile",
+      "parameters": null,
+      "action": "handOver",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[1]/div/div[3]/div[2]/div/span/i"
+      }
+    }
+  },
+  "TestCasePage": {
+    "clickTestCasMenu": {
+      "method": "clickAction",
+      "desc": "Click on the test case menu button",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "className",
+        "value": "testCaseMenu"
+      }
+    },
+    "ClickTestCaseDeleteButton": {
+      "method": "clickAction",
+      "desc": "Click on the delete button for a test case",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "deleteButton"
+      }
+    },
+    "SelectTestCaseRecord": {
+      "method": "clickAction",
+      "desc": "Select the test case record from the list",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "checkBox"
+      }
+    }
+  },
+  "TestCyclePage":{
+    "SelectTestCycleRecord": {
+      "method": "clickAction",
+      "desc": "this is select",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "checkbok"
+      }
+    }
+  }
+}

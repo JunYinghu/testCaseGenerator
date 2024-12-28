@@ -1,0 +1,32 @@
+{
+  "userLogin": {
+    "step": [
+      {
+        "method": "openPage",
+        "parameters": [
+          "String url"
+        ]
+      },
+      {
+        "method": "enterUserName",
+        "parameters": [
+          "String userName"
+        ]
+      },
+      {
+        "method": "enterPassword",
+        "parameters": [
+          "String password"
+
+        ]
+      },
+      {
+        "method": "clickLoginButton",
+        "parameters": [
+          "String password"
+
+        ]
+      }
+    ]
+  }
+}
