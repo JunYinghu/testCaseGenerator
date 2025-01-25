@@ -8,11 +8,11 @@ public class PriorTestConfig {
     }
 
     public static void setPriorTestToken() {
-        PTConstant.setPTToken("c4RrlTMj1xLyseUj43GbRnpFgLXKN0ZO4DFsVIBeLRzFx3JfwE");
+        PTConstant.setPTToken("vnM8WrMbHqb6QdUR7H5cPQeVOd0KoGjZHadBqlWA71fv4p0Kkh");
     }
 
     public static void setPriorTestProjectId() {
-        PTConstant.setPTProjectId("1868226015180881922");
+        PTConstant.setPTProjectId("885958494765715456");
     }
 
     public static void setPriorTestEmail() {

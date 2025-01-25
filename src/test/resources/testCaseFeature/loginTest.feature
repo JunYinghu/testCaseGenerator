@@ -7,11 +7,11 @@ Feature: Login
     When Enter the username in the login form <userName>
     And Enter the password in the login form <password>
     And Click the login button on the login form
-    And Wait for 5 seconds
+    And Wait for 3 seconds
     Then Verify the welcome message on the page <verifiedMessage>
     And Move to User Profile
+    And Wait for 3 seconds
     And Logout user from the page
-    And Wait for 5 seconds
 
     Examples:
       | testCaseName       | url                   | userName                  | password     | verifiedMessage | priority | severity | caseCategory | automationId |

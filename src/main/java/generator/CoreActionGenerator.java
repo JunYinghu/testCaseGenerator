@@ -38,6 +38,7 @@ public class CoreActionGenerator {
         }
         return parameters.toString();
     }
+
     public static void main(String[] args) {
         String INPUT_FILE_PATH = "D:\\testCaseGenerator\\testCaseGenerator\\src\\main\\resources\\coreActions.json";
         String OUTPUT_DIR_PATH = "D:\\testCaseGenerator\\testCaseGenerator\\src\\main\\java\\stepFiles\\CoreActions.java";
@@ -72,39 +73,39 @@ public class CoreActionGenerator {
     private static String generateCoreActionClass(JSONArray jsonArray) {
         StringBuilder classBuilder = new StringBuilder();
         // Class Header
-        classBuilder.append("package stepFiles;\n").append("import org.openqa.selenium.By;\n").append("import org.openqa.selenium.WebDriver;\n")
-                .append("import org.openqa.selenium.WebElement;\n").append("import org.openqa.selenium.support.ui.Select;\n")
-                .append("import java.util.List;\n\n")
+        classBuilder.append("package stepFiles;\n")
+                .append("import org.openqa.selenium.*;\n")
+                .append("import org.openqa.selenium.support.ui.Select;\n").append("import java.util.List;\n\n").append("import java.util.Set;\n")
                 .append("import org.openqa.selenium.interactions.Actions;\n\n")
+
                 .append("public class CoreActions {\n\n")
-                .append("    private WebDriver driver;\n\n").append("    public CoreActions(WebDriver driver) {\n")
-                .append("        this.driver = driver;\n").append("    }\n\n")
-                .append("    private WebElement findElement(String type, String value) {\n")
-                .append("        switch (type) {\n")
-                .append("            case \"id\":\n").append("                return driver.findElement(By.id(value));\n")
-                .append("            case \"className\":\n").append("                return driver.findElement(By.className(value));\n")
-                .append("            case \"name\":\n").append("                return driver.findElement(By.name(value));\n")
-                .append("            case \"partialLinkText\":\n")
-                .append("                return driver.findElement(By.partialLinkText(value));\n")
-                .append("            case \"tagName\":\n")
-                .append("                return driver.findElement(By.tagName(value));\n")
-                .append("            case \"xpath\":\n")
-                .append("                return driver.findElement(By.xpath(value));\n")
-                .append("            case \"cssSelector\":\n")
-                .append("                return driver.findElement(By.cssSelector(value));\n")
-                .append("            case \"linkText\":\n").append("                return driver.findElement(By.linkText(value));\n")
-                .append("            default:\n").append("                throw new IllegalArgumentException(\"Invalid locator type: \" + type);\n")
-                .append("        }\n").append("    }\n\n").append("    private List<WebElement> findElements(String type, String value) {\n")
-                .append("        switch (type) {\n").append("            case \"id\":\n").append("                return driver.findElements(By.id(value));\n")
-                .append("            case \"className\":\n").append("                return driver.findElements(By.className(value));\n")
-                .append("            case \"name\":\n").append("                return driver.findElements(By.name(value));\n")
-                .append("            case \"partialLinkText\":\n").append("                return driver.findElements(By.partialLinkText(value));\n")
-                .append("            case \"tagName\":\n").append("                return driver.findElements(By.tagName(value));\n").append("            case \"xpath\":\n")
-                .append("                return driver.findElements(By.xpath(value));\n").append("            case \"cssSelector\":\n")
-                .append("                return driver.findElements(By.cssSelector(value));\n").append("            case \"linkText\":\n")
-                .append("                return driver.findElements(By.linkText(value));\n").append("            default:\n")
-                .append("                throw new IllegalArgumentException(\"Invalid locator type: \" + type);\n").append("        }\n")
-                .append("    }\n\n");
+                .append("\tprivate WebDriver driver;\n\n")
+                .append("\tpublic CoreActions(WebDriver driver) {\n").append("\t\tthis.driver = driver;\n").append("\t}\n\n")
+                .append("\tprivate WebElement findElement(String type, String value) {\n")
+                .append("\t\t switch (type) {\n").append("\t\t\tcase \"id\":\n").
+                append("\t\t\t\treturn driver.findElement(By.id(value));\n")
+                .append("\t\t\tcase \"className\":\n").append("\t\t\t\treturn driver.findElement(By.className(value));\n")
+                .append("\t\t\tcase \"name\":\n")
+                .append("\t\t\t\treturn driver.findElement(By.name(value));\n").append("\t\t\tcase \"partialLinkText\":\n")
+                .append("\t\t\t\treturn driver.findElement(By.partialLinkText(value));\n")
+                .append("\t\t\t\tcase \"tagName\":\n")
+                .append("\t\t\t\treturn driver.findElement(By.tagName(value));\n")
+                .append("\t\t\tcase \"xpath\":\n").append("\t\t\t\treturn driver.findElement(By.xpath(value));\n")
+                .append("\t\t\tcase \"cssSelector\":\n").append("\t\t\t\treturn driver.findElement(By.cssSelector(value));\n")
+                .append("\t\t\tcase \"linkText\":\n").append("\t\t\t\treturn driver.findElement(By.linkText(value));\n")
+                .append("\t\t\tdefault:\n").append("\t\t\t\t\tthrow new IllegalArgumentException(\"Invalid locator type: \" + type);\n")
+                .append("\t\t}\n").append("\t}\n\n").append("\tprivate List<WebElement> findElements(String type, String value) {\n")
+                .append("\t\tswitch (type) {\n").append("\t\t\tcase \"id\":\n")
+                .append("\t\t\t\t\treturn driver.findElements(By.id(value));\n")
+                .append("\t\t\tcase \"className\":\n").append("\t\t\t\t\treturn driver.findElements(By.className(value));\n")
+                .append("\t\t\tcase \"name\":\n").append("\t\t\t\t\treturn driver.findElements(By.name(value));\n").append("\t\t\tcase \"partialLinkText\":\n")
+                .append("\t\t\t\treturn driver.findElements(By.partialLinkText(value));\n").append("\t\t\tcase \"tagName\":\n")
+                .append("\t\t\t\treturn driver.findElements(By.tagName(value));\n").append("\t\t\tcase \"xpath\":\n")
+                .append("\t\t\t\treturn driver.findElements(By.xpath(value));\n").append("\t\t\tcase \"cssSelector\":\n")
+                .append("\t\t\t\treturn driver.findElements(By.cssSelector(value));\n").append("\t\t\tcase \"linkText\":\n")
+                .append("\t\t\t\treturn driver.findElements(By.linkText(value));\n").append("\t\t\t\tdefault:\n")
+                .append("\t\t\t\tthrow new IllegalArgumentException(\"Invalid locator type: \" + type);\n").append("        }\n")
+                .append("\t}\n\n");
 
         // Generate Methods
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -136,10 +137,10 @@ public class CoreActionGenerator {
                 classBuilder.append("String type, String locator");
             } else if ("ImplicitWait".equals(methodName)) {
                 // Special case for ImplicitWait: No type and locator
-                classBuilder.append(buildParameters(parameterName, false));}
-            else if ("openWebPage".equals(methodName)){
+                classBuilder.append(buildParameters(parameterName, false));
+            } else if ("openWebPage".equals(methodName) || "getVerifyPageTitle".equals(methodName)) {
                 classBuilder.append("String param1");
-               // no basic String type, and String locator for openWebPage
+                // no basic String type, and String locator for openWebPage
             } else if (parameterName != null) {
                 // General case: Include type and locator
                 classBuilder.append(buildParameters(parameterName, true));
@@ -148,7 +149,7 @@ public class CoreActionGenerator {
             classBuilder.append(") {\n");
 
             // Method Body based on seleniumAction
-            switchToGenerateMethodBody(classBuilder,seleniumAction);
+            switchToGenerateMethodBody(classBuilder, seleniumAction);
 
             classBuilder.append("    }\n\n");
         }
@@ -159,120 +160,146 @@ public class CoreActionGenerator {
         return classBuilder.toString();
     }
 
-    public static void switchToGenerateMethodBody(StringBuilder classBuilder, String seleniumAction){
-    switch (seleniumAction) {
-        case "get":
-            classBuilder.append("        driver.get(param1);\n");
-            break;
-        case "getCurrentUrl":
-            classBuilder.append("        return driver.getCurrentUrl();\n");
-            break;
-        case "getTitle":
-            classBuilder.append("        return driver.getTitle();\n");
-            break;
-        case "getElementTagName":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        return element.getTagName();\n");
-            break;
-        case "getElementText":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        return element.getText();\n");
-            break;
-        case "sendKeys":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n")
-                    .append("        for (char c : param1.toCharArray()) {\n" +
-                    "            element.sendKeys(String.valueOf(c));\n" +
-                    "        }\n");
-            break;
-        case "click":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        element.click();\n");
-            break;
-        case "submit":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        element.submit();\n");
-            break;
-        case "clear":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        element.clear();\n");
-            break;
-        case "hyperLink":
-            classBuilder.append("        WebElement linkElement = findElement(type, locator);\n").append("        boolean hyperLinkStatus = linkElement.getTagName().equalsIgnoreCase(\"a\") && linkElement.getAttribute(\"href\") != null;\n").append("        return hyperLinkStatus ;\n");
-            break;
-        case "partialText":
-            classBuilder.append("        WebElement linkElement = findElement(type, locator);\n").append("        boolean hyperLinkStatus = linkElement.getTagName().equalsIgnoreCase(\"a\") && linkElement.getAttribute(\"href\") != null;\n").append("        return hyperLinkStatus ;\n");
-            break;
-        case "verifiedText":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        String actualText = element.getText();\n").append("        return actualText.contentEquals(param1) ;\n");
-            break;
-        case "verifiedMultipleText":
-            classBuilder.append("       WebElement element = findElement(type, locator);\n").append("        String actualText = element.getText();\n").append("        for (String expectedText : param1) {\n").append("           if (actualText.contentEquals(expectedText)) {\n").append("               System.out.println(\"actualText does not match expectedText\" ); \n").append("                return false;\n").append("            }\n").append("        }\n").append("        return true;\n");
-            break;
-        case "ImplicitWait":
-            classBuilder.append("        driver.manage().timeouts().implicitlyWait(param1, java.util.concurrent.TimeUnit.SECONDS);\n");
-            break;
-        case "quit":
-            classBuilder.append("        driver.quit();\n");
-            break;
-        case "close":
-            classBuilder.append("        driver.close();\n");
-            break;
-        case "getAttribute":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        return element.getAttribute(param1);\n");
-            break;
-        case "isDisplayed":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        return element.isDisplayed();\n");
-            break;
-        case "isSelected":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        return element.isSelected();\n");
-            break;
-        case "isEnabled":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        return element.isEnabled();\n");
-            break;
-        case "waitForElement":
-            classBuilder.append("        WebDriverWait wait = new WebDriverWait(driver, 10);\n").append("        WebElement element = wait.until(driver -> driver.findElement(By.xpath(locator)));\n").append("        return element;\n");
-            break;
+    public static void switchToGenerateMethodBody(StringBuilder classBuilder, String seleniumAction) {
+        switch (seleniumAction) {
 
-        case "deSelectAllCheckBox":
-            classBuilder.append("        List<WebElement> checkBoxes = findElements(type, locator);\n").append("        for (WebElement checkBox  : checkBoxes) {\n").append("            if (checkBox.isSelected()) {\n").append("                checkBox.click();\n").append("            }\n").append("        }\n");
-            break;
+            case "switchToNewPopupWindow":
+                classBuilder.append("\t\tString mainWindowHandle = driver.getWindowHandle();\n\n")
+                .append("\t\tSet<String> allWindowHandles = driver.getWindowHandles();\n")
+                        .append("\n").append("\t\t\tfor (String handle : allWindowHandles) {\n")
+                        .append("\t\t\t\tif (!handle.equals(mainWindowHandle)) {\n")
+                        .append("\t\t\t\t\tdriver.switchTo().window(handle);\n")
+                        .append("\t\t\t\t\tbreak;").append("\n\t\t\t}\n\t\t\t\t}");
+                break;
+            case "switchToMainWin":
+                classBuilder.append("\t\tString mainWindowHandle = driver.getWindowHandle();\n").append("\t\tdriver.switchTo().window(mainWindowHandle);");
+                break;
+            case "scrollToBottom":
+                classBuilder.append("\t\tJavascriptExecutor js = (JavascriptExecutor) driver;")
+                        .append("\n").append("\t\tjs.executeScript(\"window.scrollTo(0, document.body.scrollHeight);\");\n");
+                break;
+            case "scrollToTop":
+                classBuilder.append("\t\tJavascriptExecutor js = (JavascriptExecutor) driver;")
+                        .append("\n").append("\t\tjs.executeScript(\"window.scrollTo(0, 0);\");\n");
+                break;
+            case "scrollToElement":
+                classBuilder.append("\t\tWebElement element = findElement(type,locator);\n")
+                        .append("\t\tJavascriptExecutor js = (JavascriptExecutor) driver;\n").append("js.executeScript(\"arguments[0].scrollIntoView(true);\", element);\n");
+                break;
+            case "scrollToRight":
+                classBuilder.append("\t\tJavascriptExecutor js = (JavascriptExecutor) driver;").append("\n").append("\t\tjs.executeScript(\"window.scrollBy(500, 0);\");\n");
+                break;
+            case "scrollToLeft":
+                classBuilder.append("\t\tJavascriptExecutor js = (JavascriptExecutor) driver;").append("\n").append("\t\tjs.executeScript(\"window.scrollBy(-500, 0);\");\n");
+                break;
+            case "get":
+                classBuilder.append("\t\tdriver.get(param1);\n");
+                break;
+            case "getCurrentUrl":
+                classBuilder.append("\t\treturn driver.getCurrentUrl();\n");
+                break;
+            case "verifiedPageTitle":
+                classBuilder.append("\t\treturn driver.getTitle().contains(param1);\n");
+                break;
+            case "getElementTagName":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\treturn element.getTagName();\n");
+                break;
+            case "getElementText":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\treturn element.getText();\n");
+                break;
+            case "sendKeys":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n")
+                        .append("\t\tfor (char c : param1.toCharArray()) {\n" + "\t\t\telement.sendKeys(String.valueOf(c));\n" + "\t\t} element.sendKeys(Keys.TAB);\n");
+                break;
+            case "click":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\telement.click();\n");
+                break;
+            case "submit":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\telement.submit();\n");
+                break;
+            case "clear":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\telement.clear();\n");
+                break;
+            case "verifiedHyperLink":
+                classBuilder.append("\t\tWebElement linkElement = findElement(type, locator);\n").append("\t\treturn linkElement.getTagName().equalsIgnoreCase(\"a\") && linkElement.getAttribute(\"href\") != null;\n");
+                break;
+            case "verifiedPartialText":
+                classBuilder.append("\t\tWebElement linkElement = findElement(type, locator);\n").append("\t\treturn linkElement.getTagName().equalsIgnoreCase(\"a\") && linkElement.getAttribute(\"href\") != null;\n");
+                break;
+            case "verifiedText":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tString actualText = element.getText();\n").append("        return actualText.contentEquals(param1) ;\n");
+                break;
+            case "verifiedImage":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\treturn !driver.findElements((By) element).isEmpty() ;\n");
+                break;
+            case "verifiedMultipleText":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tString actualText = element.getText();\n").append("        for (String expectedText : param1) {\n").append("           if (actualText.contentEquals(expectedText)) {\n").append("               System.out.println(\"actualText does not match expectedText\" ); \n").append("                return false;\n").append("            }\n").append("        }\n").append("        return true;\n");
+                break;
+            case "ImplicitWait":
+                classBuilder.append("\t\tdriver.manage().timeouts().implicitlyWait(param1, java.util.concurrent.TimeUnit.SECONDS);\n");
+                break;
+            case "quit":
+                classBuilder.append("\t\tdriver.quit();\n");
+                break;
+            case "close":
+                classBuilder.append("\t\tdriver.close();\n");
+                break;
+            case "getAttribute":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\treturn element.getAttribute(param1);\n");
+                break;
+            case "isDisplayed":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\treturn element.isDisplayed();\n");
+                break;
+            case "isSelected":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\treturn element.isSelected();\n");
+                break;
+            case "isEnabled":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\treturn element.isEnabled();\n");
+                break;
+            case "waitForElement":
+                classBuilder.append("\t\tWebDriverWait wait = new WebDriverWait(driver, 10);\n").append("\t\tWebElement element = wait.until(driver -> driver.findElement(By.xpath(locator)));\n").append("        return element;\n");
+                break;
 
-        case "selectAllCheckBox":
-            classBuilder.append("        List<WebElement> checkBoxes = findElements(type, locator);\n").append("        for (WebElement checkBox  : checkBoxes) {\n").append("            if (!checkBox.isSelected()) {\n").append("                checkBox.click();\n").append("            }\n").append("        }\n");
-            break;
+            case "deSelectAllCheckBox":
+                classBuilder.append("\t\tList<WebElement> checkBoxes = findElements(type, locator);\n").append("\t\tfor (WebElement checkBox  : checkBoxes) {\n").append("            if (checkBox.isSelected()) {\n").append("                checkBox.click();\n").append("            }\n").append("        }\n");
+                break;
 
-        case "selectAllOptionsFromDropDown":
-            classBuilder.append("        WebElement selectElement = findElement(type, locator);\n").append("        Select select = new Select(selectElement);\n").append("        List<WebElement> options = select.getOptions();\n").append("        for (WebElement option : options) {\n").append("            if (!option.isSelected()) {\n").append("                option.click();\n").append("            }\n").append("        }\n");
-            break;
-        case "selectOptionByText":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        new Select(element).selectByVisibleText(param1);\n");
-            break;
-        case "selectOptionById":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        new Select(element).selectByIndex(param1);\n");
-            break;
-        case "selectOptionByValue":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        new Select(element).selectByValue(param1);\n");
-            break;
-        case "unSelectOptionByText":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        Select select = new Select(element);\n").append("        select.deselectByVisibleText(param1);\n");
-            break;
-        case "unSelectAllOptions":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        Select select = new Select(element);\n").append("        select.deselectAll();\n");
-            break;
-        case "unSelectOptionById":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        Select select = new Select(element);\n").append("        select.deselectByIndex(param1);\n");
-            break;
-        case "unSelectOptionByValue":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        Select select = new Select(element);\n").append("        select.deselectByValue(param1);\n");
-            break;
-        case "handOver":
-            classBuilder.append("        WebElement element = findElement(type, locator);\n").append("        Actions actions = new Actions(driver);\n")
-                    .append("            actions.moveToElement(element).perform();\n").append("        try {\n" +
-                            "            Thread.sleep(10000);\n" +
-                            "        } catch (InterruptedException e) {\n" +
-                            "            throw new RuntimeException(e);\n" +
-                            "        \n}");
-            break;
+            case "selectAllCheckBox":
+                classBuilder.append("\t\tList<WebElement> checkBoxes = findElements(type, locator);\n").append("\t\tfor (WebElement checkBox  : checkBoxes) {\n").append("            if (!checkBox.isSelected()) {\n").append("                checkBox.click();\n").append("            }\n").append("        }\n");
+                break;
 
-        default:
-            classBuilder.append("        // Add custom logic for seleniumAction: ").append(seleniumAction).append("\n");
-            break;
-    }
+            case "selectAllOptionsFromDropDown":
+                classBuilder.append("\t\tWebElement selectElement = findElement(type, locator);\n").append("\t\tSelect select = new Select(selectElement);\n").append("        List<WebElement> options = select.getOptions();\n").append("        for (WebElement option : options) {\n").append("            if (!option.isSelected()) {\n").append("                option.click();\n").append("            }\n").append("        }\n");
+                break;
+            case "selectOptionByText":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tnew Select(element).selectByVisibleText(param1);\n");
+                break;
+            case "selectOptionById":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tnew Select(element).selectByIndex(param1);\n");
+                break;
+            case "selectOptionByValue":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tnew Select(element).selectByValue(param1);\n");
+                break;
+            case "unSelectOptionByText":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tSelect select = new Select(element);\n").append("        select.deselectByVisibleText(param1);\n");
+                break;
+            case "unSelectAllOptions":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tSelect select = new Select(element);\n").append("        select.deselectAll();\n");
+                break;
+            case "unSelectOptionById":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tSelect select = new Select(element);\n").append("        select.deselectByIndex(param1);\n");
+                break;
+            case "unSelectOptionByValue":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tSelect select = new Select(element);\n").append("        select.deselectByValue(param1);\n");
+                break;
+            case "handOver":
+                classBuilder.append("\t\tWebElement element = findElement(type, locator);\n").append("\t\tActions actions = new Actions(driver);\n").append("            actions.moveToElement(element).perform();\n").append("        try {\n" + "            Thread.sleep(10000);\n" + "        } catch (InterruptedException e) {\n" + "            throw new RuntimeException(e);\n" + "        \n}");
+                break;
+
+            default:
+                classBuilder.append("\t\t// Add custom logic for seleniumAction: ").append(seleniumAction).append("\n");
+                break;
+        }
     }
 
     private static void writeToFile(String filePath, String content) throws IOException {

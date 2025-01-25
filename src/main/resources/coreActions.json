@@ -1,4 +1,56 @@
 [
+
+  {
+    "methodName": "switchToNewPopupWindow",
+    "return": null,
+    "seleniumAction": "switchToNewPopupWindow",
+    "parameterName": null,
+    "description": "switch to new pop up window "
+  },
+  {
+    "methodName": "switchToMainWin",
+    "return": null,
+    "seleniumAction": "switchToMainWin",
+    "parameterName": null,
+    "description": "switch to main window "
+  },
+  {
+    "methodName": "scrollToBottom",
+    "return": null,
+    "seleniumAction": "scrollToBottom",
+    "parameterName": null,
+    "description": "Scroll to the Bottom of the Page"
+  },
+  {
+    "methodName": "scrollToTop",
+    "return": null,
+    "seleniumAction": "scrollToTop",
+    "parameterName": null,
+    "description": "Scroll to the Top  of the Page"
+  },
+
+  {
+    "methodName": "scrollToLeft",
+    "return": null,
+    "seleniumAction": "scrollToLeft",
+    "parameterName": null,
+    "description": "Scroll to left"
+  },
+  {
+    "methodName": "scrollToRight",
+    "return": null,
+    "seleniumAction": "scrollToRight",
+    "parameterName": null,
+    "description": "Scroll to right Element"
+  },
+
+  {
+    "methodName": "scrollToElement",
+    "return": null,
+    "seleniumAction": "scrollToElement",
+    "parameterName": "basic",
+    "description": "Scroll to Specific Element"
+  },
   {
     "methodName": "enterText",
     "return": null,
@@ -6,6 +58,7 @@
     "parameterName": {"type": "String", "number": 1},
     "description": "type text into a field"
   },
+
   {
     "methodName": "openWebPage",
     "return": null,
@@ -20,13 +73,7 @@
     "parameterName": null,
     "description": "Return current page url"
   },
-  {
-    "methodName": "getTitle",
-    "return": "String",
-    "seleniumAction": "getTitle",
-    "parameterName": null,
-    "description": "Return current page title"
-  },
+
   {
     "methodName": "getElementText",
     "return": "String",
@@ -87,7 +134,7 @@
   {
     "methodName": "getVerifyHyperLinkPresent",
     "return": "boolean",
-    "seleniumAction": "hyperLink",
+    "seleniumAction": "verifiedHyperLink",
     "parameterName": "basic",
     "description": "Verify the visibility of a given text as hyperLink"
   },
@@ -95,7 +142,7 @@
   {
     "methodName": "getVerifyHyperLinkPresentByPartialText",
     "return": "boolean",
-    "seleniumAction": "partialText",
+    "seleniumAction": "verifiedPartialText",
     "parameterName": "basic",
     "description": "Return the visibility of a given text as partialText"
   },
@@ -107,12 +154,28 @@
     "parameterName": {"type": "String", "number": 1},
     "description": "Return the visibility of given text"
   },
+
   {
     "methodName": "getVerifyMultipleTextPresent",
     "return": "boolean",
     "seleniumAction": "verifiedMultipleText",
     "parameterName": {"type": "String[]", "number": 1},
     "description": "Return the visibility of multiple given texts"
+  },
+
+  {
+    "methodName": "getVerifyImagePresent",
+    "return": "boolean",
+    "seleniumAction": "verifiedImage",
+    "parameterName": "basic",
+    "description": "Return the visibility of given Image"
+  },
+  {
+    "methodName": "getVerifyPageTitle",
+    "return": "boolean",
+    "seleniumAction": "verifiedPageTitle",
+    "parameterName": {"type": "String", "number": 1},
+    "description": "Return that the page title matches the expected value."
   },
   {
     "methodName": "selectOptionById",
@@ -121,7 +184,6 @@
     "parameterName": {"type": "int", "number": 1},
     "description": "Select an option based on the given index"
   },
-
 
   {
     "methodName": "selectAllOptionsFromDropDown",

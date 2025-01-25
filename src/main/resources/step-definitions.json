@@ -1,5 +1,16 @@
 {
   "LogonPage": {
+    "VerifyPageTitle": {
+      "method": "getVerifyPageTitle",
+      "desc": "验证 web page title",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {}
+    },
     "OpenLogonPage": {
       "method": "openWebPage",
       "desc": "Open Web Page as given URL",
@@ -21,7 +32,6 @@
         "value": "/html/body/div[1]/div/form/div[2]/div/div/input"
       }
     },
-
     "EnterUserName": {
       "method": "enterText",
       "desc": "Enter the username in the login form",
@@ -70,6 +80,16 @@
         "value": "/html/body/div[1]/div/form/div[5]/button[1]"
       }
     },
+    "ClickZhuCe": {
+      "method": "clickAction",
+      "desc": "Click 注册按钮 from login form",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/form/div[5]/button[2]/span"
+      }
+    },
     "VerifyFailLoginPresent": {
       "method": "getVerifyTextPresent",
       "desc": "Verify the login fails message on the page",
@@ -99,7 +119,6 @@
       }
     }
   },
-
   "WelcomePage": {
     "VerifyTextPresent": {
       "method": "getVerifyTextPresent",
@@ -143,39 +162,7 @@
       }
     }
   },
-  "TestCasePage": {
-    "clickTestCasMenu": {
-      "method": "clickAction",
-      "desc": "Click on the test case menu button",
-      "parameters": null,
-      "action": "click",
-      "element": {
-        "type": "className",
-        "value": "testCaseMenu"
-      }
-    },
-    "ClickTestCaseDeleteButton": {
-      "method": "clickAction",
-      "desc": "Click on the delete button for a test case",
-      "parameters": null,
-      "action": "click",
-      "element": {
-        "type": "xpath",
-        "value": "deleteButton"
-      }
-    },
-    "SelectTestCaseRecord": {
-      "method": "clickAction",
-      "desc": "Select the test case record from the list",
-      "parameters": null,
-      "action": "click",
-      "element": {
-        "type": "xpath",
-        "value": "checkBox"
-      }
-    }
-  },
-  "TestCyclePage":{
+  "TestCyclePage": {
     "SelectTestCycleRecord": {
       "method": "clickAction",
       "desc": "this is select",
@@ -184,6 +171,273 @@
       "element": {
         "type": "xpath",
         "value": "checkbok"
+      }
+    }
+  },
+  "RegisterInfoPage": {
+    "EnterEmailId": {
+      "method": "enterText",
+      "desc": "输入注册邮箱",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "//*[@id='mazey']"
+      }
+    },
+    "GroupEnterRegisterInfo": {
+      "methods": [
+        "EnterEmailId(emailId)",
+        "EnterPhoneNo(phoneNo)",
+        "EnterUserName(userName)",
+        "EnterCompanyName(companyName)",
+        "EnterIndustry(industry)",
+        "EnterOccupation(occupation)"
+      ],
+      "desc": "输入注册用户信息"
+    },
+    "SwitchToNewWindow": {
+      "method": "switchToNewPopupWindow",
+      "desc": "Switch to new popup window",
+      "parameters": null,
+      "action": "switchToNewPopupWindow",
+      "element": {}
+    },
+    "SwitchToMainWindow": {
+      "method": "switchToMainWin",
+      "desc": "Switch to main window",
+      "parameters": null,
+      "action": "switchToMainWin",
+      "element": {}
+    },
+    "ScrollBottom": {
+      "method": "scrollToBottom",
+      "desc": "Move to Page Bottom",
+      "parameters": null,
+      "action": "scrollBottom",
+      "element": {}
+    },
+    "ScrollTop": {
+      "method": "scrollToTop",
+      "desc": "Move to Page Top",
+      "parameters": null,
+      "action": "scrollBottom",
+      "element": {}
+    },
+    "VerifyPhoneNoLength": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify  电话号码 长度",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[2]/div/div/div[2]"
+      }
+    },
+    "EnterPhoneNo": {
+      "method": "enterText",
+      "desc": "输入电话号码",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[2]/div/div/div/input"
+      }
+    },
+    "VerifyEmailIdLength": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify  邮箱 长度",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[1]/div/div/div[2]"
+      }
+    },
+    "VerifyUserNameLength": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify  用户名 长度",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[3]/div/div/div[2]"
+      }
+    },
+    "EnterUserName": {
+      "method": "enterText",
+      "desc": "输入用户名称",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[3]/div/div/div/input"
+      }
+    },
+    "EnterCompanyName": {
+      "method": "enterText",
+      "desc": "输入公司名称",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[4]/div/div/div/input"
+      }
+    },
+    "EnterIndustry": {
+      "method": "enterText",
+      "desc": "输入行业",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[5]/div/div/div/input"
+      }
+    },
+    "EnterOccupation": {
+      "method": "enterText",
+      "desc": "输入职业",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[6]/div/div/div/input"
+      }
+    },
+    "OpenTerms": {
+      "method": "clickAction",
+      "desc": "打开服务条款",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[3]/div/a/span"
+      }
+    },
+    "ClickAgree": {
+      "method": "clickAction",
+      "desc": "Click 同意并继续按钮",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div[2]/div/div[2]/span/button/span"
+      }
+    },
+    "SelectCheckBox": {
+      "method": "clickAction",
+      "desc": "选择同意服务条款",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[3]/div/label/span/span"
+      }
+    },
+    "ClickOnZhuce": {
+      "method": "clickAction",
+      "desc": "点击注册按钮提交注册信息",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[4]/button"
+      }
+    },
+    "VerifyRegisterSucess": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify 注册成功信息",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]"
+      }
+    },
+    "VerifyInvalidEmail": {
+      "method": "getVerifyTextPresent",
+      "desc": "验证注册邮箱",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "verifiedText",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/div[1]/div/div/div[2]"
+      }
+    },
+    "GoBackLogon": {
+      "method": "clickAction",
+      "desc": "点击返回登录 from register page",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[3]/a/span"
+      }
+    }
+  },
+  "RegisterPageEnd": {
+    "GoBackLogon": {
+      "method": "clickAction",
+      "desc": "点击返回登录 from register end",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/a/span"
+      }
+    },
+    "GoToEmail": {
+      "method": "clickAction",
+      "desc": "打开注册邮箱",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/form/div[2]/span"
       }
     }
   }

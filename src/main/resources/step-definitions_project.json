@@ -1,0 +1,192 @@
+{
+  "ProjectPage": {
+    "GroupEnterProjectInfo": {
+      "methods": [
+        "ProjectFieldTitle(title)",
+        "ProjectFieldDesc(desc)",
+        "ProjectFieldProjectType(type)",
+        "ProjectFieldReportTo(reportTo)",
+        "ProjectFieldRemarks(remarks)",
+        "ProjectFieldStatus(status)"
+      ],
+      "desc": "输入 创建 Project 数据"
+    },
+    "ProjectMenu": {
+      "method": "clickAction",
+      "desc": "Click Project Menu",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[1]/div/div[2]/ul/li[10]"
+      }
+    },
+    "ProjectCreateButton": {
+      "method": "clickAction",
+      "desc": "Click On Project Create Button",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div/div[2]/div/div/div/div[1]/button/span"
+      }
+    },
+    "ProjectSaveAndBackButton": {
+      "method": "clickAction",
+      "desc": "Click Save and Back Project Record",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[1]/button[2]/span"
+      }
+    },
+    "VerifyProjectTitle": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify New Created Record In Project List",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[4]/div/span"
+      }
+    },
+    "ProjectDeleteButton": {
+      "method": "clickAction",
+      "desc": "Click on the delete button of a test case",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[4]/div[2]/table/tbody/tr[1]/td[15]/div/button[4]/span"
+      }
+    },
+    "ProjectRecordSelectSingle": {
+      "method": "clickAction",
+      "desc": "Select the Project record from the list",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div/label/span/span"
+      }
+    },
+    "ProjectFieldTitle": {
+      "method": "enterText",
+      "desc": "Enter title",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div[1]/input"
+      }
+    },
+    "ProjectFieldDesc": {
+      "method": "enterText",
+      "desc": "Enter Desc",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[2]/div/div/div/textarea"
+      }
+    },
+    "ProjectFieldReportTo": {
+      "method": "selectOptionByValue",
+      "desc": "Select report to",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[3]/div/div/div/div[1]/input"
+      }
+    },
+    "ProjectFieldCustomer": {
+      "method": "enterText",
+      "desc": "Enter customer",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[8]/div/div/div/input"
+      }
+    },
+    "ProjectFieldProjectType": {
+      "method": "selectOptionByValue",
+      "desc": "Enter project type",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[4]/div/div/div/div[1]/input"
+      }
+    },
+    "ProjectFieldRemarks": {
+      "method": "enterText",
+      "desc": "Enter Remarks",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[9]/div/div/div/textarea"
+      }
+    },
+    "ProjectFieldTestFrame": {
+      "method": "selectOptionByValue",
+      "desc": "Select test frame",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[6]/div/div/div/div[1]/input"
+      }
+    },
+    "ProjectFieldStatus": {
+      "method": "selectOptionByValue",
+      "desc": "Select status",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[5]/div/div/div/div[1]/input"
+      }
+    }
+  }
+}
+

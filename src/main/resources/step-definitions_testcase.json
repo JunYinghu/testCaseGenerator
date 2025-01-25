@@ -1,0 +1,277 @@
+{
+  "TestCasePage": {
+    "GroupEnterTestCaseInfo": {
+      "methods": [
+        "TestCaseFieldTitle(title)",
+        "TestCaseFieldDesc(desc)",
+        "TestCaseFieldCategory(category)",
+        "TestCaseFieldCondition(condition)",
+        "TestCaseFieldBrowser(browser)",
+        "TestCaseFieldStatus(status)",
+        "TestCaseFieldCustomChaXun(查询)"
+      ],
+      "desc": "输入 创建test case 数据"
+    },
+    "TestCaseMenu": {
+      "method": "clickAction",
+      "desc": "Click Test Case Menu",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[1]/div/div[2]/ul/li[6]"
+      }
+    },
+    "TestCaseCreateButton": {
+      "method": "clickAction",
+      "desc": "Click On Test Case Create Button",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div/div[2]/div/div/div/div[1]/button/span"
+      }
+    },
+    "TestCaseSaveAndBackButton": {
+      "method": "clickAction",
+      "desc": "Click Save and Back Test Case Record",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div/div/div/div[1]/button/span"
+      }
+    },
+    "VerifyTestCaseTitle": {
+      "method": "getVerifyTextPresent",
+      "desc": "Verify New Created Record In Test Case List",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "assert",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input"
+      }
+    },
+    "TestCaseDeleteButton": {
+      "method": "clickAction",
+      "desc": "Click on the delete button of a test case",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[4]/div[2]/table/tbody/tr[1]/td[15]/div/button[4]/span"
+      }
+    },
+    "TestCaseRecordSelectSingle": {
+      "method": "clickAction",
+      "desc": "Select the test case record from the list",
+      "parameters": null,
+      "action": "click",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div/label/span/span"
+      }
+    },
+    "TestCaseFieldTitle": {
+      "method": "enterText",
+      "desc": "Enter title",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input"
+      }
+    },
+    "TestCaseFieldDesc": {
+      "method": "enterText",
+      "desc": "Enter Desc",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input"
+      }
+    },
+    "TestCaseFieldVersion": {
+      "method": "selectOptionByValue",
+      "desc": "Select Version",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input"
+      }
+    },
+    "TestCaseFieldCategory": {
+      "method": "selectOptionByTextFromList",
+      "desc": "Select Category",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input"
+      }
+    },
+    "TestCaseFieldLinkStory": {
+      "method": "enterText",
+      "desc": "Enter title",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input"
+      }
+    },
+    "TestCaseFieldTestData": {
+      "method": "enterText",
+      "desc": "Enter title",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input"
+      }
+    },
+    "TestCaseFieldBrowser": {
+      "method": "selectOptionByTextFromList",
+      "desc": "Select Browser",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[15]/div/div/div/div[1]/input"
+      }
+    },
+    "TestCaseFieldExternalId": {
+      "method": "enterText",
+      "desc": "Enter External Id",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[16]/div/div/div/input"
+      }
+    },
+    "TestCaseFieldCondition": {
+      "method": "enterText",
+      "desc": "Enter condition",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[18]/div/div/div/input"
+      }
+    },
+    "TestCaseFieldRemarks": {
+      "method": "enterText",
+      "desc": "Enter title",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "input",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[19]/div/div/div/textarea"
+      }
+    },
+    "TestCaseFieldPlatform": {
+      "method": "selectOptionByTextFromList",
+      "desc": "select platform",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[17]/div/div/div/div/input"
+      }
+    },
+    "TestCaseFieldDevice": {
+      "method": "selectOptionByValue",
+      "desc": "Select device",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[14]/div/div/div/div/input"
+      }
+    },
+    "TestCaseFieldStatus": {
+      "method": "selectOptionByTextFromList",
+      "desc": "Select status",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[11]/div/div/div/div/input"
+      }
+    },
+    "TestCaseFieldCustomChaXun": {
+      "method": "selectOptionByTextFromList",
+      "desc": "Enter chaXun",
+      "parameters": [
+        {
+          "type": "String"
+        }
+      ],
+      "action": "select",
+      "element": {
+        "type": "xpath",
+        "value": "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[21]/div/div/div/div[1]/input"
+      }
+    }
+  }
+}
+
