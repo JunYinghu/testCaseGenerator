@@ -1,4 +1,4 @@
-Feature: Register
+Feature: 注册
 
   Scenario Outline: Register User Success
     Given  Open Web Page as given URL <url>

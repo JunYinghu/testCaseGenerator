@@ -1,4 +1,4 @@
-Feature: TestCase
+Feature: 项目
 
   Scenario Outline: Create Project Successfully
     Given Admin User has been login

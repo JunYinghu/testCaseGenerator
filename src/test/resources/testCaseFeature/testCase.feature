@@ -1,4 +1,4 @@
-Feature: TestCase
+Feature: 测试用例
 
   Scenario Outline: Create Test Case Successfully
     Given Open Web Page as given URL "http://43.139.159.146/"
