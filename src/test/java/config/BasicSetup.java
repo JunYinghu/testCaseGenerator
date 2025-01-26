@@ -20,6 +20,7 @@ public class BasicSetup {
      * if test cycle title does not exist in PriorTest system, will create
      *        - if test cycle is null , will proceed with a default test cycle <version_platform_env>
      *        - if test cycle title is not null, will proceed with the test cycle title
+     * browser - UI test browser driver type: CHROME,FIREFOX,SAFARI,EDGE
      * <p>
      * setPriorTestRelease : 1: set current run is released version
      * setPriorTestCurrentRelease: 1: set current run is current released version
@@ -37,14 +38,16 @@ public class BasicSetup {
      * setPlatform - string: Platform Current Test Cases running on, if not provide,  PriorTest Automation detects the platform test cases running on
      * setIssueIdentifier - make issue title as unicode as per
      **/
-    @Parameters({"testCycle", "enablePTApi", "signOff", "Env", "version", "release", "currentRelease"})
+    @Parameters({ "enablePTApi", "signOff","browser","testCycle", "Env", "version", "release", "currentRelease"})
     @BeforeSuite
-    public void basicSetup(@Optional("调试 Automation Test") String testCycle, @Optional("true") boolean enablePTApi, @Optional("true") boolean signOff, @Optional("开发") String Env, @Optional("1.0.0.0") String version, @Optional("1") int release, @Optional("1") int currentRelease) {
-        log.info("+++++ Setup CICD setting :" + enablePTApi + "  " + testCycle + " " + version + "  " + Env);
+    public void basicSetup(@Optional("true") boolean enablePTApi, @Optional("true") boolean signOff,@Optional("FIREFOX") String browser, @Optional("调试 Automation Test") String testCycle,  @Optional("开发") String Env, @Optional("1.0.0.0") String version, @Optional("1") int release, @Optional("1") int currentRelease) {
+        log.info("+++++ Setup CICD setting :" + enablePTApi + "  " + testCycle + " " + version + "  " + Env + browser);
+
         PTApiConfig.setConnectPTAPI(enablePTApi);
         PTApiConfig.setTestCycleTitle(testCycle);
         PTApiConfig.setPriorTestRelease(release);
         PTApiConfig.setPriorTestCurrentRelease(currentRelease);
+        PTApiConfig.setBrowser(browser);
 
         PriorTestConfig.setPriorTestApi();
         PriorTestConfig.setPriorTestProjectId();
@@ -55,6 +58,7 @@ public class BasicSetup {
         PriorTestConfig.setEnv(Env);
         PriorTestConfig.setPlatform(System.getProperty("os.name"));
         PriorTestConfig.setVersion(version);
+
         PriorTestConfig.setPriorTestSignOff(signOff);
 
         PTApiConfig.setIssueIdentifier(generateDeviceInfo());

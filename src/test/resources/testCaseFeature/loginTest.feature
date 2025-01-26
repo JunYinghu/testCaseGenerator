@@ -1,4 +1,4 @@
-Feature: Login
+Feature:登录
 
   Scenario Outline: User Login Successfully
     Given Open Web Page as given URL <url>

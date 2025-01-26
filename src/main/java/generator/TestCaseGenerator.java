@@ -1,10 +1,11 @@
 package generator;
 
-
+import com.priortest.config.PTApiConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import org.json.JSONObject;
+import utils.WebDriverSingleton;
 
 import java.io.*;
 import java.lang.reflect.Field;
@@ -42,6 +43,9 @@ public class TestCaseGenerator {
 
         String generatedTestCaseFileName = featureFileName + "FeatureTestCase.java";
         String generatedJavaTestFileFullPath = outputFilePath + generatedTestCaseFileName;
+
+        log.info("Create Java Test Case File " + generatedJavaTestFileFullPath);
+        log.info("For Feature File " + featureFilePath);
 
         TestCaseGenerator generator = new TestCaseGenerator();
         generator.generateTestCases(featureFilePath, stepDefinitionJsonPath, generatedJavaTestFileFullPath, featureFileName);
@@ -134,7 +138,17 @@ public class TestCaseGenerator {
         classLevel = new StringBuilder();
 
         // Start the Java file with necessary
-        testCase.append("import config.BasicSetup;\n").append("import org.testng.annotations.Test;\n").append("import org.testng.annotations.BeforeClass;\n").append("import org.testng.annotations.*;\n").append("import org.json.JSONObject;\n").append("import static org.testng.Assert.*;\n\n").append("import org.openqa.selenium.WebDriver;\n\n").append("import utils.WebDriverSingleton;\n\n").append("import com.priortest.annotation.TestCaseApi;\n\n").append("import com.priortest.api.PriorTestAPIAdapter;\n\n").append("import com.priortest.config.PTApiConfig;\n\n").append("import com.priortest.config.PTApiFieldSetup;\n\n");
+        testCase.append("import config.BasicSetup;\n").append("import org.testng.annotations.Test;\n")
+                .append("import org.testng.annotations.BeforeClass;\n")
+                .append("import org.testng.annotations.*;\n")
+                .append("import org.json.JSONObject;\n")
+                .append("import static org.testng.Assert.*;\n\n")
+                .append("import org.openqa.selenium.WebDriver;\n\n")
+                .append("import utils.WebDriverSingleton;\n\n")
+                .append("import com.priortest.annotation.TestCaseApi;\n\n")
+                .append("import com.priortest.api.PriorTestAPIAdapter;\n\n")
+                .append("import com.priortest.config.PTApiConfig;\n\n")
+                .append("import com.priortest.config.PTApiFieldSetup;\n\n");
 
         // Start the public class (named after the feature name)
         testCase.append("@Listeners({ PriorTestAPIAdapter.class })");
@@ -160,13 +174,20 @@ public class TestCaseGenerator {
         testCase.append("\t@BeforeClass\n");
         testCase.append("\tpublic void setUp(){");
         testCase.append("\n");
-        testCase.append("\tdriver = WebDriverSingleton.getDriver(WebDriverSingleton.BrowserType.FIREFOX);");
+        testCase.append("\t\tString browser = PTApiConfig.getBrowser();");
+        testCase.append("\n");
+        testCase.append("\t\tdriver = WebDriverSingleton.getDriver(WebDriverSingleton.BrowserType.valueOf(browser));");
         testCase.append("\n");
         ArrayList<String> importedClass = getSetupClassName();
         for (String name : importedClass) {
             testCase.append("\t\t" + getInstanceName(name) + "= new " + name + "(driver);");
             testCase.append("\n");
         }
+
+        testCase.append("\n\t\t// Set Case Module");
+        testCase.append("\n");
+
+        testCase.append("\t\tPTApiFieldSetup.setModule(\""+featureName+"\");");
         // closed Before class
         testCase.append("\n\t}\n\n");
 

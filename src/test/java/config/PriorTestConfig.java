@@ -30,7 +30,6 @@ public class PriorTestConfig {
     public static void setEnv(String env) {
         PTConstant.setPTEnv(env);
     }
-
     public static void setPlatform(String platform) {
         PTConstant.setPTPlatform(platform);
     }
