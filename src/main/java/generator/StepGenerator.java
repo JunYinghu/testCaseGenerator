@@ -13,7 +13,9 @@ import org.json.JSONArray;
 
 public class StepGenerator {
 
-    private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_testcase.json";
+    private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions.json";
+   // private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_project.json";
+   // private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_testcase.json";
     private static final String OUTPUT_DIR_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/java/stepFiles/";
 
     public static void main(String[] args) {
@@ -198,27 +200,27 @@ public class StepGenerator {
 
             methodBody.append("\t\t\t\t stepSuccess = true;\n");
             methodBody.append("\t\t\t} catch (Exception e) {\n");
-            methodBody.append("\t\t\t\t\tlog.info(\"An error occurred: \" + e.getMessage());\n");
-            methodBody.append("\t\t\tthrow e;\n");
-            methodBody.append("\t\t} finally {\n");
-            methodBody.append("\t\t\tif (!stepSuccess) {\n");
-            methodBody.append("\t\t\t\tthrow new RuntimeException(\"Step Failed: " + methodName);
-            if (parameters != null) {
-                parameters.forEach(param -> {
-                    methodBody.append(" with parameter: \" + param"); // Add parameter variable
-                });
-            } else {
-                methodBody.append("\"");
-            }
-            methodBody.append(");\n");
-            methodBody.append("\t\t\t\t}\n");
+           // methodBody.append("\t\t\t\t\tlog.info(\"An error occurred: \" + e.getMessage());\n");
+            methodBody.append("\t\t\tthrow new RuntimeException(e.getMessage());\n");
+           // methodBody.append("\t\t} finally {\n");
+           // methodBody.append("\t\t\tif (!stepSuccess) {\n");
+           // methodBody.append("\t\t\t\tthrow new RuntimeException(\"Step Failed: " + methodName);
+           // if (parameters != null) {
+           //     parameters.forEach(param -> {
+           //         methodBody.append(" with parameter: \" + param"); // Add parameter variable
+           //     });
+           // } else {
+           //     methodBody.append("\"");
+           // }
+           // methodBody.append(");\n");
+            //methodBody.append("\t\t\t\t}\n");
             methodBody.append("\t\t\t}\n");
             methodBody.append("\t\t}\n");
 
             // Write method to file
             try {
-                writer.append("\t\t@TestStepApi(stepDesc = \"" + stepDesc + "\" ,issueId=\" \")\n");
-                writer.append("\t\t@And(\"" + stepDesc + "\")\n"); // any keywords And, Given, Then, When
+                writer.append("\t@TestStepApi(stepDesc = \"" + stepDesc + "\" ,issueId=\" \")\n");
+                writer.append("\t@And(\"" + stepDesc + "\")\n"); // any keywords And, Given, Then, When
                 writer.append(methodSignature + "\n");
                 writer.append(methodBody.toString());
                 writer.append("\n\n");

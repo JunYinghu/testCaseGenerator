@@ -41,7 +41,7 @@ public class BasicSetup {
     @Parameters({ "enablePTApi", "signOff","browser","testCycle", "Env", "version", "release", "currentRelease"})
     @BeforeSuite
     public void basicSetup(@Optional("true") boolean enablePTApi, @Optional("true") boolean signOff,@Optional("FIREFOX") String browser, @Optional("调试 Automation Test") String testCycle,  @Optional("开发") String Env, @Optional("1.0.0.0") String version, @Optional("1") int release, @Optional("1") int currentRelease) {
-        log.info("+++++ Setup CICD setting :" + enablePTApi + "  " + testCycle + " " + version + "  " + Env + browser);
+        log.info("+++++ Setup CICD setting :" + enablePTApi + "  " + testCycle + " " + version + "  " + Env + " "+ browser);
 
         PTApiConfig.setConnectPTAPI(enablePTApi);
         PTApiConfig.setTestCycleTitle(testCycle);
