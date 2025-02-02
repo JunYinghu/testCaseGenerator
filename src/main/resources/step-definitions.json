@@ -147,8 +147,8 @@
       "parameters": null,
       "action": "click",
       "element": {
-        "type": "xpath",
-        "value": "/html/body/ul/li[2]/div"
+        "type": "cssSelector",
+        "value": ".logout-btn"
       }
     },
     "MoveToUserProfile": {

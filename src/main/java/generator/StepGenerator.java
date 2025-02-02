@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.priortest.step.StepResultTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
@@ -15,7 +16,7 @@ public class StepGenerator {
 
     private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions.json";
    // private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_project.json";
-   // private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_testcase.json";
+    //private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_testcase.json";
     private static final String OUTPUT_DIR_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/java/stepFiles/";
 
     public static void main(String[] args) {
@@ -34,7 +35,10 @@ public class StepGenerator {
                 try (FileWriter writer = new FileWriter(file, false)) { // Open FileWriter in overwrite mode
                     // Write package declaration and imports
                     writer.append("package stepFiles;\n\n");
+                    writer.append("import com.priortest.step.StepResultTracker;\n\n");
                     writer.append("import io.cucumber.java.en.And;\n\n");
+
+
                     writer.append("import org.json.JSONObject;\n\n");
                     writer.append("import org.openqa.selenium.WebDriver;\n");
                     writer.append("import com.priortest.annotation.TestStepApi;\n");
@@ -82,6 +86,7 @@ public class StepGenerator {
         methodSignature.append(") {");
         StringBuilder methodBody = new StringBuilder();
         methodBody.append("\t\tboolean stepSuccess = false;\n");
+        methodBody.append("\t\tString errorMessage = null;\n");
 
         methodBody.append("\t\ttry {\n");
         for (Object methodItem : methods) {
@@ -110,8 +115,9 @@ public class StepGenerator {
         methodBody.append("\t\t\tlog.info(\"An error occurred: \" + e.getMessage());\n");
         methodBody.append( "\t\t\tthrow e;\n")
         .append("\t\t} finally {\n")
-        .append("\t\tif (!stepSuccess) {\n").append("\t\t\tthrow new RuntimeException(\"Step Failed: "+methodName +"("+ stepDesc+ ")\");\n")
-        .append("\t\t\t}\n").append("\t\t}\n\t}\n");
+        //.append("\t\tif (!stepSuccess) {\n")
+                .append("\t\t\tStepResultTracker.addStepResult(\""+stepDesc+"\", stepSuccess, errorMessage);")
+                .append("\n\t\t}\n\t}\n");
 
         try {
             // Add annotations and method definition
@@ -158,6 +164,7 @@ public class StepGenerator {
             // Generate method body
             StringBuilder methodBody = new StringBuilder();
             methodBody.append("\t\tboolean stepSuccess = false;\n");
+            methodBody.append("\t\tString errorMessage = null;\n");
             methodBody.append("\t\ttry {\n");
             if (method.toLowerCase().contains("verify")) {
                 if (element.isEmpty()) {
@@ -187,7 +194,7 @@ public class StepGenerator {
 
             } else {
                 // Add CoreActions method call for actions like click, input, etc.
-                methodBody.append("\t\t\t\t coreAction." + method + "(\"" + element.getString("type") + "\", \"" + element.getString("value") + "\"");
+                methodBody.append("\t\t\t coreAction." + method + "(\"" + element.getString("type") + "\", \"" + element.getString("value") + "\"");
 
                 // Add parameters to the method call
                 if (parameters != null) {
@@ -197,24 +204,24 @@ public class StepGenerator {
                 }
                 methodBody.append(");\n");
             }
-
-            methodBody.append("\t\t\t\t stepSuccess = true;\n");
+            methodBody.append("\t\t\t stepSuccess = true;\n");
             methodBody.append("\t\t\t} catch (Exception e) {\n");
-           // methodBody.append("\t\t\t\t\tlog.info(\"An error occurred: \" + e.getMessage());\n");
+            methodBody.append("\t\t\t errorMessage =e.getMessage();\n");
             methodBody.append("\t\t\tthrow new RuntimeException(e.getMessage());\n");
-           // methodBody.append("\t\t} finally {\n");
-           // methodBody.append("\t\t\tif (!stepSuccess) {\n");
+            methodBody.append("\t\t} finally {\n");
+             methodBody.append("\t\t\tStepResultTracker.addStepResult(\""+stepDesc+"\", stepSuccess, errorMessage);");
+            //methodBody.append("\t\t\tif (!stepSuccess) {\n");
            // methodBody.append("\t\t\t\tthrow new RuntimeException(\"Step Failed: " + methodName);
-           // if (parameters != null) {
+            //if (parameters != null) {
            //     parameters.forEach(param -> {
            //         methodBody.append(" with parameter: \" + param"); // Add parameter variable
            //     });
            // } else {
            //     methodBody.append("\"");
            // }
-           // methodBody.append(");\n");
+
             //methodBody.append("\t\t\t\t}\n");
-            methodBody.append("\t\t\t}\n");
+            methodBody.append("\n\t\t\t}\n");
             methodBody.append("\t\t}\n");
 
             // Write method to file

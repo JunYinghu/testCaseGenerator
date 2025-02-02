@@ -1,5 +1,7 @@
 package stepFiles;
 
+import com.priortest.step.StepResultTracker;
+
 import io.cucumber.java.en.And;
 
 import org.json.JSONObject;
@@ -20,128 +22,121 @@ public class TestCasePage {
 		this.coreAction = new CoreActions(driver);
 	}
 
-		@TestStepApi(stepDesc = "Click Test Case Menu" ,issueId=" ")
-		@And("Click Test Case Menu")
+	@TestStepApi(stepDesc = "Click Test Case Menu" ,issueId=" ")
+	@And("Click Test Case Menu")
 	public void stepTestCaseMenu() {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.clickAction("xpath", "/html/body/div/div/div/div[1]/div/div[2]/ul/li[6]");
-				 stepSuccess = true;
+			 coreAction.clickAction("xpath", "/html/body/div/div/div/div[1]/div/div[2]/ul/li[6]");
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseMenu");
-				}
+			StepResultTracker.addStepResult("Click Test Case Menu", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Enter title" ,issueId=" ")
-		@And("Enter title")
+	@TestStepApi(stepDesc = "Enter title" ,issueId=" ")
+	@And("Enter title")
 	public void stepTestCaseFieldTestData(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.enterText("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.enterText("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldTestData with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Enter title", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Enter External Id" ,issueId=" ")
-		@And("Enter External Id")
+	@TestStepApi(stepDesc = "Enter External Id" ,issueId=" ")
+	@And("Enter External Id")
 	public void stepTestCaseFieldExternalId(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.enterText("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[16]/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.enterText("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[16]/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldExternalId with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Enter External Id", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Enter title" ,issueId=" ")
-		@And("Enter title")
+	@TestStepApi(stepDesc = "Enter title" ,issueId=" ")
+	@And("Enter title")
 	public void stepTestCaseFieldTitle(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.enterText("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.enterText("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldTitle with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Enter title", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Enter title" ,issueId=" ")
-		@And("Enter title")
+	@TestStepApi(stepDesc = "Enter title" ,issueId=" ")
+	@And("Enter title")
 	public void stepTestCaseFieldLinkStory(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.enterText("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.enterText("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldLinkStory with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Enter title", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Select device" ,issueId=" ")
-		@And("Select device")
+	@TestStepApi(stepDesc = "Select device" ,issueId=" ")
+	@And("Select device")
 	public void stepTestCaseFieldDevice(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.selectOptionByValue("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[14]/div/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.selectOptionByValue("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[14]/div/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldDevice with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Select device", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Select status" ,issueId=" ")
-		@And("Select status")
+	@TestStepApi(stepDesc = "Select status" ,issueId=" ")
+	@And("Select status")
 	public void stepTestCaseFieldStatus(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.selectOptionByTextFromList("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[11]/div/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.selectOptionByTextFromList("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[11]/div/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldStatus with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Select status", stepSuccess, errorMessage);
 			}
 		}
 
@@ -150,6 +145,7 @@ public class TestCasePage {
 	@And("输入 创建test case 数据")
 	public void stepGroupEnterTestCaseInfo(JSONObject inputData) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
 			if (inputData.has("title") && inputData.get("title") != null) {
 				log.info(" Performing Step :  TestCaseFieldTitle(title)");
@@ -185,244 +181,229 @@ public class TestCasePage {
 			log.info("An error occurred: " + e.getMessage());
 			throw e;
 		} finally {
-		if (!stepSuccess) {
-			throw new RuntimeException("Step Failed: stepGroupEnterTestCaseInfo(输入 创建test case 数据)");
-			}
+			StepResultTracker.addStepResult("输入 创建test case 数据", stepSuccess, errorMessage);
 		}
 	}
 
 
-		@TestStepApi(stepDesc = "Enter condition" ,issueId=" ")
-		@And("Enter condition")
+	@TestStepApi(stepDesc = "Enter condition" ,issueId=" ")
+	@And("Enter condition")
 	public void stepTestCaseFieldCondition(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.enterText("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[18]/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.enterText("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[18]/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldCondition with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Enter condition", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Click On Test Case Create Button" ,issueId=" ")
-		@And("Click On Test Case Create Button")
+	@TestStepApi(stepDesc = "Click On Test Case Create Button" ,issueId=" ")
+	@And("Click On Test Case Create Button")
 	public void stepTestCaseCreateButton() {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.clickAction("xpath", "/html/body/div/div/div/div[2]/div/div/div[2]/div/div/div/div[1]/button/span");
-				 stepSuccess = true;
+			 coreAction.clickAction("xpath", "/html/body/div/div/div/div[2]/div/div/div[2]/div/div/div/div[1]/button/span");
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseCreateButton");
-				}
+			StepResultTracker.addStepResult("Click On Test Case Create Button", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Select the test case record from the list" ,issueId=" ")
-		@And("Select the test case record from the list")
+	@TestStepApi(stepDesc = "Select the test case record from the list" ,issueId=" ")
+	@And("Select the test case record from the list")
 	public void stepTestCaseRecordSelectSingle() {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.clickAction("xpath", "/html/body/div/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div/label/span/span");
-				 stepSuccess = true;
+			 coreAction.clickAction("xpath", "/html/body/div/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div/label/span/span");
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseRecordSelectSingle");
-				}
+			StepResultTracker.addStepResult("Select the test case record from the list", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Select Browser" ,issueId=" ")
-		@And("Select Browser")
+	@TestStepApi(stepDesc = "Select Browser" ,issueId=" ")
+	@And("Select Browser")
 	public void stepTestCaseFieldBrowser(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.selectOptionByTextFromList("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[15]/div/div/div/div[1]/input", param);
-				 stepSuccess = true;
+			 coreAction.selectOptionByTextFromList("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[15]/div/div/div/div[1]/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldBrowser with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Select Browser", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Select Category" ,issueId=" ")
-		@And("Select Category")
+	@TestStepApi(stepDesc = "Select Category" ,issueId=" ")
+	@And("Select Category")
 	public void stepTestCaseFieldCategory(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.selectOptionByTextFromList("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.selectOptionByTextFromList("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldCategory with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Select Category", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Verify New Created Record In Test Case List" ,issueId=" ")
-		@And("Verify New Created Record In Test Case List")
+	@TestStepApi(stepDesc = "Verify New Created Record In Test Case List" ,issueId=" ")
+	@And("Verify New Created Record In Test Case List")
 	public void stepVerifyTestCaseTitle(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
 			boolean result = coreAction.getVerifyTextPresent("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input",param);
 				Assert.assertTrue(result, "Verification failed for VerifyTestCaseTitle");
-				 stepSuccess = true;
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepVerifyTestCaseTitle with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Verify New Created Record In Test Case List", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Select Version" ,issueId=" ")
-		@And("Select Version")
+	@TestStepApi(stepDesc = "Select Version" ,issueId=" ")
+	@And("Select Version")
 	public void stepTestCaseFieldVersion(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.selectOptionByValue("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.selectOptionByValue("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldVersion with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Select Version", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Enter Desc" ,issueId=" ")
-		@And("Enter Desc")
+	@TestStepApi(stepDesc = "Enter Desc" ,issueId=" ")
+	@And("Enter Desc")
 	public void stepTestCaseFieldDesc(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.enterText("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.enterText("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[1]/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldDesc with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Enter Desc", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Enter chaXun" ,issueId=" ")
-		@And("Enter chaXun")
+	@TestStepApi(stepDesc = "Enter chaXun" ,issueId=" ")
+	@And("Enter chaXun")
 	public void stepTestCaseFieldCustomChaXun(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.selectOptionByTextFromList("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[21]/div/div/div/div[1]/input", param);
-				 stepSuccess = true;
+			 coreAction.selectOptionByTextFromList("xpath", "/html/body/div/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[21]/div/div/div/div[1]/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldCustomChaXun with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Enter chaXun", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Enter title" ,issueId=" ")
-		@And("Enter title")
+	@TestStepApi(stepDesc = "Enter title" ,issueId=" ")
+	@And("Enter title")
 	public void stepTestCaseFieldRemarks(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.enterText("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[19]/div/div/div/textarea", param);
-				 stepSuccess = true;
+			 coreAction.enterText("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[19]/div/div/div/textarea", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldRemarks with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("Enter title", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "select platform" ,issueId=" ")
-		@And("select platform")
+	@TestStepApi(stepDesc = "select platform" ,issueId=" ")
+	@And("select platform")
 	public void stepTestCaseFieldPlatform(String param) {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.selectOptionByTextFromList("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[17]/div/div/div/div/input", param);
-				 stepSuccess = true;
+			 coreAction.selectOptionByTextFromList("xpath", "/html/body/div[1]/div/div/div[2]/div/div[1]/div/div/div[2]/div[1]/form/div[2]/div/div[17]/div/div/div/div/input", param);
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseFieldPlatform with parameter: " + param);
-				}
+			StepResultTracker.addStepResult("select platform", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Click Save and Back Test Case Record" ,issueId=" ")
-		@And("Click Save and Back Test Case Record")
+	@TestStepApi(stepDesc = "Click Save and Back Test Case Record" ,issueId=" ")
+	@And("Click Save and Back Test Case Record")
 	public void stepTestCaseSaveAndBackButton() {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.clickAction("xpath", "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div/div/div/div[1]/button/span");
-				 stepSuccess = true;
+			 coreAction.clickAction("xpath", "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div/div/div/div[1]/button/span");
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseSaveAndBackButton");
-				}
+			StepResultTracker.addStepResult("Click Save and Back Test Case Record", stepSuccess, errorMessage);
 			}
 		}
 
 
-		@TestStepApi(stepDesc = "Click on the delete button of a test case" ,issueId=" ")
-		@And("Click on the delete button of a test case")
+	@TestStepApi(stepDesc = "Click on the delete button of a test case" ,issueId=" ")
+	@And("Click on the delete button of a test case")
 	public void stepTestCaseDeleteButton() {
 		boolean stepSuccess = false;
+		String errorMessage = null;
 		try {
-				 coreAction.clickAction("xpath", "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[4]/div[2]/table/tbody/tr[1]/td[15]/div/button[4]/span");
-				 stepSuccess = true;
+			 coreAction.clickAction("xpath", "/html/body/div[1]/div/div/div[2]/div/div/div[2]/div/div/div/div[3]/div[1]/div[4]/div[2]/table/tbody/tr[1]/td[15]/div/button[4]/span");
+			 stepSuccess = true;
 			} catch (Exception e) {
-					log.info("An error occurred: " + e.getMessage());
-			throw e;
+			 errorMessage =e.getMessage();
+			throw new RuntimeException(e.getMessage());
 		} finally {
-			if (!stepSuccess) {
-				throw new RuntimeException("Step Failed: stepTestCaseDeleteButton");
-				}
+			StepResultTracker.addStepResult("Click on the delete button of a test case", stepSuccess, errorMessage);
 			}
 		}
 

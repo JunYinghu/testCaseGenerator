@@ -9,7 +9,6 @@ Feature:登录
     And Click the login button on the login form
     And Wait for 3 seconds
     Then Verify the welcome message on the page <verifiedMessage>
-    And Move to User Profile
     And Wait for 3 seconds
     And Logout user from the page
 
