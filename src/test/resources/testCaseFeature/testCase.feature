@@ -1,7 +1,7 @@
 Feature: 测试用例
 
   Scenario Outline: Create Test Case Successfully
-    Given Open Web Page as given URL "http://43.139.159.146/"
+    Given Open Web Page as given URL "http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard"
     Given clear the password in the login form
     Given clear the username in the login form
     When Enter the username in the login form "hujy11@gmail.com"

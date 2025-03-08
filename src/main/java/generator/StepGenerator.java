@@ -14,22 +14,18 @@ import org.json.JSONArray;
 
 public class StepGenerator {
 
-    private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions.json";
-   // private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_project.json";
-    //private static final String INPUT_FILE_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_testcase.json";
-    private static final String OUTPUT_DIR_PATH = "D:/testCaseGenerator/testCaseGenerator/src/main/java/stepFiles/";
 
-    public static void main(String[] args) {
+    public static void stepGenerateAPI(String stepDefinitionPath, String outputStepLocation ){
         try {
             // Read JSON file
-            String content = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get(INPUT_FILE_PATH)));
+            String content = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get(stepDefinitionPath)));
             JSONObject root = new JSONObject(content);
 
             // Process each page (e.g., logonPage, welcomePage, etc.)
             root.keySet().forEach(pageKey -> {
                 JSONObject page = root.getJSONObject(pageKey);
                 // Create or overwrite file for the page
-                String filePath = OUTPUT_DIR_PATH + capitalizeFirstLetter(pageKey) + ".java";
+                String filePath = outputStepLocation + capitalizeFirstLetter(pageKey) + ".java";
                 File file = new File(filePath);
 
                 try (FileWriter writer = new FileWriter(file, false)) { // Open FileWriter in overwrite mode
@@ -78,6 +74,13 @@ public class StepGenerator {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static void main(String[] args) {
+        String currentWorkingDirectory = System.getProperty("user.dir");
+
+        String INPUT_FILE_PATH = currentWorkingDirectory+"/src/main/resources/step-definitions.json";
+        String OUTPUT_DIR_PATH = currentWorkingDirectory+"/src/test/java/stepFiles/";
+        stepGenerateAPI(INPUT_FILE_PATH,OUTPUT_DIR_PATH);
     }
 
     private static void generateStepMethods(FileWriter writer,String methodName, JSONArray methods, String stepDesc){

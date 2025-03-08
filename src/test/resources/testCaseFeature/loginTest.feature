@@ -14,8 +14,8 @@ Feature:登录
 
     Examples:
       | testCaseName       | url                   | userName                  | password     | verifiedMessage | priority | severity | caseCategory | automationId |
-      | loginAdminAccount  | http://43.139.159.146 | qatest.hu.mary3@gmail.com | Hjyhappy123! | 欢迎              | 高        | 严重       | 功能           | TC01        |
-      | loginTesterAccount | http://43.139.159.146 | hujy11@gmail.com          | Hjyhappy123!  | 欢迎              | 中        | 一般       | 功能           | TC02        |
+      | loginAdminAccount  | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard | qatest.hu.mary3@gmail.com | Hjyhappy123! | 欢迎              | 高        | 严重       | 功能           | TC01        |
+      | loginTesterAccount | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard | hujy11@gmail.com          | Hjyhappy123!  | 欢迎              | 中        | 一般       | 功能           | TC02        |
 
   Scenario Outline: User Login Fail
     Given Open Web Page as given URL <url>
@@ -30,9 +30,9 @@ Feature:登录
 
     Examples:
       | testCaseName        | url                   | userName                  | password    | verifiedMessage | priority | severity | caseCategory | automationId |
-      | AccountExpired      | http://43.139.159.146 | qatest.hu.mary@gmail.com | Hjyhappy234 | 请采购服务，或请申请再次试用  | 高        | 严重       | 功能           | TC03        |
-      | IncorrectPassword | http://43.139.159.146 | qatest.hu.mary3@gmail.com | Hjyhappy234 |认证失败，请重新登录。       | 高        | 严重       | 功能           | TC04        |
-      | emailNoPresent | http://43.139.159.146 | qatest.hu.mar3@gmail.com | Hjyhappy234 | 用户名或密码错误。       | 高        | 严重       | 功能           | TC05        |
+      | AccountExpired      | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard| qatest.hu.mary@gmail.com | Hjyhappy234 | 请采购服务，或请申请再次试用  | 高        | 严重       | 功能           | TC03        |
+      | IncorrectPassword | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard | qatest.hu.mary3@gmail.com | Hjyhappy234 |认证失败，请重新登录。       | 高        | 严重       | 功能           | TC04        |
+      | emailNoPresent | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard | qatest.hu.mar3@gmail.com | Hjyhappy234 | 用户名或密码错误。       | 高        | 严重       | 功能           | TC05        |
 
 
   Scenario Outline: Incorrect Email Error
@@ -49,4 +49,4 @@ Feature:登录
 
     Examples:
       | testCaseName       | url                   | userName                  | password    | verifiedMessage | priority | severity | caseCategory | automationId |
-      | emailFormatInValid| http://43.139.159.146 | qatest.hu.mary3@gmail.com.com@test | Hjyhappy234 | 请输入正确的邮箱地址      | 高        | 严重       | 功能           | TC06        |
+      | emailFormatInValid| http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard | qatest.hu.mary3@gmail.com.com@test | Hjyhappy234 | 请输入正确的邮箱地址      | 高        | 严重       | 功能           | TC06        |

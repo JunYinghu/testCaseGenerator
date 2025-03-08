@@ -14,8 +14,8 @@ Feature: 注册
 
     Examples:
       | testCaseName             | url                   | emailId                   | phoneNo  | userName | companyName | industry | occupation | verifiedMessage                                                  | priority | severity | caseCategory | automationId |
-      | FullInfo                 | http://43.139.159.146 | qatest.hu.mary3@gmail.com | 85331509 | 星海软件     | Json.test   | IT       | 软件测试       | 感谢您试用PriorTest, 请通过您的注册邮箱qatest.hu.mary3@gmail.com激活注册帐号开启您的体验之旅 | 高        | 严重       | 功能           | TC01         |
-      | UserNameWithOtherDefault | http://43.139.159.146 | qatest.hu.mary@163.com    |          |          |             |          |            | 感谢您试用PriorTest, 请通过您的注册邮箱qatest.hu.mary@163.com激活注册帐号开启您的体验之旅    | 高        | 严重       | 功能           | TC02         |
+      | FullInfo                 | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard | qatest.hu.mary3@gmail.com | 85331509 | 星海软件     | Json.test   | IT       | 软件测试       | 感谢您试用PriorTest, 请通过您的注册邮箱qatest.hu.mary3@gmail.com激活注册帐号开启您的体验之旅 | 高        | 严重       | 功能           | TC01         |
+      | UserNameWithOtherDefault | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard| qatest.hu.mary@163.com    |          |          |             |          |            | 感谢您试用PriorTest, 请通过您的注册邮箱qatest.hu.mary@163.com激活注册帐号开启您的体验之旅    | 高        | 严重       | 功能           | TC02         |
 
   Scenario Outline: Verify Field Length
     Given Open Web Page as given URL <url>
@@ -34,7 +34,7 @@ Feature: 注册
 
     Examples:
       | testCaseName | url                   | verifiedUserNameLength | verifiedEmailLength | priority | severity | caseCategory | automationId |
-      | Exceed     | http://43.139.159.146 | 长度最多20个字符              | 长度最多50个字符           | 高        | 严重       | 界面           | TC02         |
+      | Exceed     | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard | 长度最多20个字符              | 长度最多50个字符           | 高        | 严重       | 界面           | TC02         |
 
 
   Scenario Outline: Failed To Register
@@ -45,7 +45,7 @@ Feature: 注册
 
     Examples:
       | testCaseName | url                   | emailId         | verifiedMessage | priority | severity | caseCategory | automationId |
-      | NotEmail     | http://43.139.159.146 | qatest.hu.mary3 | 请输入正确的邮箱地址      | 高        | 严重       | 功能           | TC04         |
+      | NotEmail     | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard| qatest.hu.mary3 | 请输入正确的邮箱地址      | 高        | 严重       | 功能           | TC04         |
 
 
   Scenario Outline: Register Cancellation
@@ -56,4 +56,4 @@ Feature: 注册
 
     Examples:
       | testCaseName | url                   | pageTitle | priority | severity | caseCategory | automationId |
-      | GoBackLogon  | http://43.139.159.146 | PriorTest | 高        | 严重       | 功能           | TC04         |
+      | GoBackLogon  | http://43.139.159.146/index_login.html#/login?redirect=%2Fdashboard | PriorTest | 高        | 严重       | 功能           | TC04         |

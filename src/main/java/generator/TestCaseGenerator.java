@@ -27,27 +27,30 @@ public class TestCaseGenerator {
     private float paramFloat;
 
     public static void main(String[] args) {
-        // Define feature file path and step definition JSON
-        String[] stepDefinitionJsonPath;
-        stepDefinitionJsonPath = new String[]{"D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions.json", "D:/testCaseGenerator/testCaseGenerator/src/main/resources/step-definitions_testcase.json"};
-        String featureFilePath = "D:/testCaseGenerator/testCaseGenerator/src/test/resources/testCaseFeature/LoginTest.feature";
-        //String featureFilePath = "D:/testCaseGenerator/testCaseGenerator/src/test/resources/testCaseFeature/testCase.feature";
-        //String featureFilePath = "D:/testCaseGenerator/testCaseGenerator/src/test/resources/testCaseFeature/registerTest.feature";
-        String outputFilePath = "D:/testCaseGenerator/testCaseGenerator/src/test/java/testCases/";
 
+        String currentWorkingDirectory = System.getProperty("user.dir");
+        log.info("current Working Directory: " + currentWorkingDirectory);
+
+        String[] stepDefinitionJsonsString = new String[]{currentWorkingDirectory+"/src/main/resources/step-definitions.json"};
+        String featureFilePath = currentWorkingDirectory+"/src/test/resources/testCaseFeature/loginTest.feature";
+        String outputFileLocation = currentWorkingDirectory+"/src/test/java/testCases/";
+        generateAPI(stepDefinitionJsonsString,featureFilePath,outputFileLocation);
+    }
+
+    public static void generateAPI(String[] stepDefinitionJsonsString, String featureFilePath, String outputFileLocation){
         // get generated java file as per given feature file name
         String featureFileName = Paths.get(featureFilePath).getFileName().toString();
         featureFileName = featureFileName.substring(0, featureFileName.lastIndexOf('.')); // used for class name
         featureFileName = featureFileName.substring(0, 1).toUpperCase() + featureFileName.substring(1);
 
         String generatedTestCaseFileName = featureFileName + "FeatureTestCase.java";
-        String generatedJavaTestFileFullPath = outputFilePath + generatedTestCaseFileName;
+        String generatedJavaTestFileFullPath = outputFileLocation + generatedTestCaseFileName;
 
         log.info("Create Java Test Case File " + generatedJavaTestFileFullPath);
         log.info("For Feature File " + featureFilePath);
 
         TestCaseGenerator generator = new TestCaseGenerator();
-        generator.generateTestCases(featureFilePath, stepDefinitionJsonPath, generatedJavaTestFileFullPath, featureFileName);
+        generator.generateTestCases(featureFilePath, stepDefinitionJsonsString, generatedJavaTestFileFullPath, featureFileName);
     }
 
     public static JSONObject convertExamplesToJson(Example example) {
