@@ -1,4 +1,4 @@
-package generator;
+package generator_back;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.priortest.step.StepResultTracker;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 import org.json.JSONArray;
 

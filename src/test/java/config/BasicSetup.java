@@ -6,7 +6,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.*;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Properties;
 
 public class BasicSetup {
     private static final Logger log = LogManager.getLogger(BasicSetup.class);
@@ -18,8 +21,8 @@ public class BasicSetup {
      * setTestCycleTitle : string - to create test cycle
      * if test cycle title exist in PriorTest system , will not re-create
      * if test cycle title does not exist in PriorTest system, will create
-     *        - if test cycle is null , will proceed with a default test cycle <version_platform_env>
-     *        - if test cycle title is not null, will proceed with the test cycle title
+     * - if test cycle is null , will proceed with a default test cycle <version_platform_env>
+     * - if test cycle title is not null, will proceed with the test cycle title
      * browser - UI test browser driver type: CHROME,FIREFOX,SAFARI,EDGE
      * <p>
      * setPriorTestRelease : 1: set current run is released version
@@ -38,14 +41,90 @@ public class BasicSetup {
      * setPlatform - string: Platform Current Test Cases running on, if not provide,  PriorTest Automation detects the platform test cases running on
      * setIssueIdentifier - make issue title as unicode as per
      **/
-    @Parameters({ "enablePTApi", "signOff","browser","testCycle", "Env", "version", "release", "currentRelease"})
+
+    public Properties readProps() {
+        Properties props = new Properties();
+        FileInputStream input;
+        {
+            try {
+                input = new FileInputStream("src/test/resources/test_parameters.properties");
+                props.load(input);
+                input.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return props;
+    }
+
     @BeforeSuite
-    public void basicSetup(@Optional("true") boolean enablePTApi, @Optional("true") boolean signOff,@Optional("FIREFOX") String browser, @Optional("调试 Automation Test") String testCycle,  @Optional("开发") String Env, @Optional("1.0.0.0") String version, @Optional("1") int release, @Optional("1") int currentRelease) {
-        log.info("+++++ Setup CICD setting :" + enablePTApi + "  " + testCycle + " " + version + "  " + Env + " "+ browser);
+    public void propertiesSetup() {
+        // 加载 test_parameters.properties 文件
+        Properties props = readProps();
+        // 获取参数值
+        String Env = props.getProperty("Env");
+        String testCycle = props.getProperty("testCycle");
+        String version = props.getProperty("version");
+        String browser = props.getProperty("browser");
+        boolean released = Boolean.parseBoolean(props.getProperty("released"));
+        boolean currentRelease = Boolean.parseBoolean(props.getProperty("currentRelease"));
+        boolean enablePTApi = Boolean.parseBoolean(props.getProperty("enablePTApi"));
+        boolean signOff = Boolean.parseBoolean(props.getProperty("signOff"));
+        String testSuiteName = props.getProperty("testSuiteName");
+        String runMode = props.getProperty("runMode");
+        int releasedFlag = released ? 1 : 0;
+        int currentReleaseFlag = currentRelease ? 1 : 0;
+
+        // 打印参数值
+        log.info("Env: " + Env);
+        System.out.println("Test Cycle: " + testCycle);
+        System.out.println("Version: " + version);
+        System.out.println("Browser: " + browser);
+        System.out.println("Released: " + released);
+        System.out.println("Current Release: " + currentRelease);
+        System.out.println("Enable PT API: " + enablePTApi);
+        System.out.println("Sign Off: " + signOff);
+        System.out.println("Test Suite Name: " + testSuiteName);
+        System.out.println("Run Mode: " + runMode);
 
         PTApiConfig.setConnectPTAPI(enablePTApi);
         PTApiConfig.setTestCycleTitle(testCycle);
-        PTApiConfig.setPriorTestRelease(release);
+        PTApiConfig.setPriorTestRelease(releasedFlag);
+        PTApiConfig.setPriorTestCurrentRelease(currentReleaseFlag);
+        PTApiConfig.setBrowser(browser);
+
+        PriorTestConfig.setPriorTestApi();
+        PriorTestConfig.setPriorTestProjectId();
+        PriorTestConfig.setPriorTestToken();
+        PriorTestConfig.setPriorTestEmail();
+        PriorTestConfig.setIssueCreation(true);
+
+        PriorTestConfig.setEnv(Env);
+        PriorTestConfig.setPlatform(System.getProperty("os.name"));
+        PriorTestConfig.setVersion(version);
+
+        PriorTestConfig.setPriorTestSignOff(signOff);
+
+        PTApiConfig.setIssueIdentifier(generateDeviceInfo());
+        log.info("+++ End Setup CICD ++++ ");
+
+    }
+
+    @Parameters({"enablePTApi", "signOff", "browser", "testCycle", "Env", "version", "released", "currentRelease"})
+    public void basicSetup(
+            @Optional("true") boolean enablePTApi,
+            @Optional("true") boolean signOff,
+            @Optional("FIREFOX") String browser,
+            @Optional("调试 Automation Test") String testCycle,
+            @Optional("开发") String Env,
+            @Optional("1.0.0.0") String version,
+            @Optional("1") int released,
+            @Optional("1") int currentRelease) {
+        log.info("+++++ Setup CICD setting :" + enablePTApi + "  " + testCycle + " " + version + "  " + Env + " " + browser);
+
+        PTApiConfig.setConnectPTAPI(enablePTApi);
+        PTApiConfig.setTestCycleTitle(testCycle);
+        PTApiConfig.setPriorTestRelease(released);
         PTApiConfig.setPriorTestCurrentRelease(currentRelease);
         PTApiConfig.setBrowser(browser);
 

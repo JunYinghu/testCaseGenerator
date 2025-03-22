@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestSuite - Registration">
+    <test name="Test Feature - Registration">
+        <classes>
+            <class name="testCases.RegisterTestFeatureTestCase">
+                <methods>
+                    <include name="testCase_RegisterUserSuccess_FullInfo"/>
+                    <include name="testCase_RegisterCancellation_GoBackLogon"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

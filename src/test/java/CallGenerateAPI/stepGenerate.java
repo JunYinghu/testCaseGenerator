@@ -1,7 +1,6 @@
 package CallGenerateAPI;
 
-import generator.StepGenerator;
-import generator.TestCaseGenerator;
+import com.priortest.generator.generatorAPI.StepGenerator;
 
 public class stepGenerate {
 
@@ -9,7 +8,7 @@ public class stepGenerate {
     {
         String currentWorkingDirectory = System.getProperty("user.dir");
 
-        String stepDefinition = currentWorkingDirectory+"/src/main/resources/step-definitions_project.json";
+        String stepDefinition = currentWorkingDirectory+"/src/main/resources/step-definitions.json";
         String outputStep = currentWorkingDirectory+"/src/test/java/stepFiles/";
         StepGenerator.stepGenerateAPI(stepDefinition,outputStep);
 

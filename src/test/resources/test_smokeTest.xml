@@ -1,0 +1,7 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SmokeTest" verbose="1">
+    <!-- Then include test suites -->
+    <suite-files>
+        <suite-file path="test_LoginFeature.xml"/>
+    </suite-files>
+</suite>

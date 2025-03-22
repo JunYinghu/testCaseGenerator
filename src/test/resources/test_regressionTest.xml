@@ -1,0 +1,7 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Smoke Suite" verbose="1">
+    <suite-files>
+        <suite-file path="test_RegisterFeature.xml"/>
+        <suite-file path="test_LoginFeature.xml"/>
+    </suite-files>
+</suite>
